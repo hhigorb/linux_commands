@@ -134,3 +134,23 @@
 
 ![Aplicações Desktop](images/image31.png 'Aplicações Desktop')
 
+---
+
+## Shell
+
+![Shell](images/image32.png 'Shell')
+
+---
+
+!![Shell](images/image33.png 'Shell')
+
+---
+
+Essa nomenclatura significa nome_do_usuario@nome_da_maquina
+
+Quando o final termina com `$` significa que é um usuário comum, já quando termina com `#`, significa que é um usuário root (administrador do sistema).
+
+!![Shell](images/image34.png 'Shell')
+
+
+
