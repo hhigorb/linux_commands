@@ -35,7 +35,7 @@ Existem várias variáveis de ambiente que já são setadas automaticamente pelo
 `export VARIAVEL=3` - Nesse caso eu já crio a variável e exporto
 
 
-## Comandos úteis
+## Comandos básicos e introduções
 
 `su -` - Acessa o usuário root
 
@@ -56,3 +56,27 @@ Existem várias variáveis de ambiente que já são setadas automaticamente pelo
 `date ; echo 'Hello World'` - `;` serve para executar comandos sequênciais. Nesse caso executo o comando `date` e logo após o comando `echo`
 
 `echo 'Hello World` - Imprime no terminal mensagens ou variáveis
+
+## Arquivos e diretórios
+
+`cd` - Navegar entre diretórios
+
+`pwd` - Mostra o diretório atual
+
+`ls` - Lista os arquivos e diretórios
+
+`ls -l` - Lista os arquivos e diretórios de forma mais detalhada
+
+`ls -a` - Lista os arquivos e diretórios ocultos
+
+`cd ..` - Volta 1 nível atrás do diretório atual
+
+`cd ../..` - Volta 2 níveis. É possível fazer isso quantas vezes necessário para voltar ao início
+
+`cd -` - Volta no diretório que estava anteriormente
+
+`cd` - Vai para o home do usuário atual
+
+`cd ~` - Vai para o home do usuário atual
+
+`cd ~/Documentos` - Vai para o home do usuário atual e entra na pasta `Documentos`
