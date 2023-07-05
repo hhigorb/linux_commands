@@ -59,6 +59,8 @@ Existem várias variáveis de ambiente que já são setadas automaticamente pelo
 
 ## Arquivos e diretórios
 
+No Linux, `.` significa o diretório atual e `..` significa o diretório anterior.
+
 `cd` - Navegar entre diretórios
 
 `pwd` - Mostra o diretório atual
@@ -67,7 +69,7 @@ Existem várias variáveis de ambiente que já são setadas automaticamente pelo
 
 `ls -l` - Lista os arquivos e diretórios de forma mais detalhada
 
-`ls -a` - Lista os arquivos e diretórios ocultos
+`ls -a` - Lista os arquivos e diretórios ocultos. Arquivos e diretórios ocultos no linux começam com `.`
 
 `cd ..` - Volta 1 nível atrás do diretório atual
 
@@ -80,3 +82,25 @@ Existem várias variáveis de ambiente que já são setadas automaticamente pelo
 `cd ~` - Vai para o home do usuário atual
 
 `cd ~/Documentos` - Vai para o home do usuário atual e entra na pasta `Documentos`
+
+`mkdir nome_diretorio` - Cria um diretório
+
+`mkdir -p diretorio1/diretorio2/diretorio3/diretorio4/diretorio5` - Com o parâmetro `-p` é possível criar vários diretórios aninhados ao mesmo tempo
+
+`rmdir nome_diretorio` - Remove um diretório. Esse comando só remove diretórios vazios
+
+`rmdir -p nome_diretorio/nome_diretorio2` - Remove diretórios aninhados
+
+`rm nome_arquivo ou nome_diretorio` - Apaga o arquivo ou diretório
+
+`rm -r nome_diretorio` - Apaga todo o diretório, incluindo os arquivos dentro dele
+
+`touch nome_arquivo.txt` - Cria um arquivo em branco
+
+`open nome_arquivo` - Abre o arquivo selecionado
+
+`cp caminho_origem caminho_destino` - Copia o arquivo de origem para o destino
+
+`cp -r caminho_origem caminho_destino` - Copia todo o diretório para o destino
+
+`mv caminho_origem caminho_destino` - Move um arquivo ou diretório para o destino especificado. Esse comando também renomeia um arquivo ou diretório para o especificado
