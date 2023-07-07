@@ -97,7 +97,7 @@ No Linux, `.` significa o diretório atual e `..` significa o diretório anterio
 
 `touch nome_arquivo.txt` - Cria um arquivo em branco
 
-`open nome_arquivo` - Abre o arquivo selecionado
+`open nome_arquivo/nome_pasta` - Abre o arquivo/pasta selecionado
 
 `cp caminho_origem caminho_destino` - Copia o arquivo de origem para o destino
 
