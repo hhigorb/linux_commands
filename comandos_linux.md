@@ -156,4 +156,4 @@ Arquivos .tar são um conjunto de arquivos agrupados (isso não é compactar).
 
 `whereis tar` - whereis é útil para procurar o caminho do executável de um programa/comando
 
-which python3 - O which procura nos diretórios da variável de ambiente $PATH 
+`which python3` - O which procura nos diretórios da variável de ambiente $PATH 
