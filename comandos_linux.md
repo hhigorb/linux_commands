@@ -57,6 +57,7 @@ Existem várias variáveis de ambiente que já são setadas automaticamente pelo
 
 `echo 'Hello World` - Imprime no terminal mensagens ou variáveis
 
+Quando se utiliza o `\` no bash, significa que o bash não irá interpretar o caracter após a contra barra, exemplo: `cd Área\ de\ Trabalho/`
 ## Arquivos e diretórios
 
 No Linux, `.` significa o diretório atual e `..` significa o diretório anterior.
@@ -103,4 +104,56 @@ No Linux, `.` significa o diretório atual e `..` significa o diretório anterio
 
 `cp -r caminho_origem caminho_destino` - Copia todo o diretório para o destino
 
+`cp -v caminho_origem caminho_destino` - O parâmetro -v mostra um detalhamento maior ao executar o comando
+
 `mv caminho_origem caminho_destino` - Move um arquivo ou diretório para o destino especificado. Esse comando também renomeia um arquivo ou diretório para o especificado
+
+## Caracteres especiais (curingas)
+
+`ls exemplo*` - Mostra todos os arquivos/pastas que comecem com teste e depois contenha qualquer coisa ou nada
+
+`ls exemplo[12345]` - Mostra tudo que conter dentro dos colchetes
+
+`ls [Ee]xemplo` - Mostra tudo que conter dentro dos colchetes
+
+`ls exemplo[1-5]` - Mostra tudo entre os valores selecionados
+
+`ls {teste, TESTE}` - Mostra tudo que conter entre os valores das chaves
+
+`ls teste?` - Mostra o que foi selecionado mais algum caracter que substitua o `?`. Caso contrário, não mostrará nada
+
+## Link simbólico
+
+Links simbólicos é um arquivo que aponta para outro. Especificamente, é uma referência que aponta para um arquivo ou um diretório.
+
+![Link simbólico](images/image36.png 'LInk simbólico')
+
+Nesse caso, se eu executar o `vboxconfig`, ele está apontando para `usr/lib/virtualbox/postinst-common.` 
+
+`ln -s nome_do_arquivo nome_do_link_simbolico` - Forma de se criar um link simbólico. Nesse caso, escolho um arquivo para ser linkado e crio um nome para o link simbólico. O parâmetro -s é para criar o link simbólico. Em questão de dúvidas, é sempre bom rodar o `comando --help` para consultas
+
+## Arquivar e compactar arquivos e diretórios
+
+Arquivos .tar são um conjunto de arquivos agrupados (isso não é compactar).
+
+`tar cf nome.tar arquivo.png arquivo2.png` - Esse comando irá agrupar os arquivos dentro de `nome.tar`. O comando tar vários argumentos além de `cf`, é bom consultar o --help quando necessário
+
+`tar tf arquivo.tar` - Lista o que tem dentro de arquivo.tar
+
+`tar xf arquivo.tar` - Extrai o arquivo agrupado
+
+`gzip arquivo.tar` - Compacta o arquivo arquivo.tar (seu formato será .gz, enquanto arquivos agrupados são .tar). Nesse caso, como compactei um arquivo .tar, seu formato será `.tar.gz`. Também há o formato `.tgz`, que significa que o arquivo está agrupado e compactado.
+
+`gzip -k arquivo` - Compacta o arquivo mas não exclui o arquivo antigo (parâmetro keep)
+
+`gunzip arquivo` - Descompacta o arquivo
+
+## Procurando por arquivos
+
+`find caminho_a_procurar -name arquivo_a_procurar` - Busca o arquivo selecionado no diretório especificado 
+
+`locate rpm` - Também faz uma busca de arquivos ou diretórios que contenha `rpm` por exemplo. Esse comando é mais rápido pois ele consulta uma base já gerada pelo sistema, porém não se atualiza sozinho, então acaba sendo limitado em relação ao `find`
+
+`whereis tar` - whereis é útil para procurar o caminho do executável de um programa/comando
+
+which python3 - O which procura nos diretórios da variável de ambiente $PATH 
