@@ -156,4 +156,99 @@ Arquivos .tar são um conjunto de arquivos agrupados (isso não é compactar).
 
 `whereis tar` - whereis é útil para procurar o caminho do executável de um programa/comando
 
-`which python3` - O which procura nos diretórios da variável de ambiente $PATH 
+`which python3` - O which procura nos diretórios da variável de ambiente $PATH
+
+## Manipulando Arquivos de Texto
+
+`cat arquivo_texto.txt` - Lê e mostra na tela o conteúdo do arquivo texto
+
+`less arquivo_texto.txt` - Lê e mostra na tela o conteúdo do arquivo texto
+
+`head arquivo_texto.txt` - Lê e mostra na tela o conteúdo do arquivo texto (as primeiras linhas)
+
+`tail arquivo_texto.txt` - Lê e mostra na tela o conteúdo do arquivo texto (as últimas linhas)
+
+`cat arquivo_texto.txt > novo_arquivo.txt` - Redirecionou a saída do cat para o novo_arquivo.txt. Nesse caso o valor foi atribuído. Se o arquivo já existir, vai sobrescrever, caso queira concatenar no final, utilize `>>` ao invés de `>`
+
+`wc arquivo_texto.txt` - Retorna a quantidade de linhas, palavras e caracteres de um arquivo texto
+
+`sort arquivo_texto.txt` - Ordena um arquivo texto por ordem alfabética. O parâmetro `-r` ordena ao contrário [Z-A]
+
+`uniq arquivo_texto.txt` - Mostra as ocorrências únicas do arquivo (O arquivo precisa estar ordenado)
+
+`cut -c1-10 arquivo_texto.txt` - Pega os caracteres do 1 ao 10 do arquivo texto
+
+`sort arquivo_texto.txt | uniq` - O pipe serve para concatenar comandos. Aqui estou ordenando o `arquivo_texto.txt` e logo após uso a saída desse comando como entrada do comando `uniq`
+
+`grep palavra arquivo_texto.txt` - Filtra a palavra selecionada no arquivo texto
+
+## Editores de texto em linha de comando
+
+Os principais editores de texto via linha de comando do Linux são o `nano` e `vim`
+
+Para editar um arquivo com eles, apenas digite `nano/vim nome_do_arquivo`
+
+O vim trabalha com modos para realizar alterações nos arquivos. São eles: `modo de inserção`, `modo de navegação` e `modo de comando`.
+
+**Modo de navegação:** Modo padrão. É por ele que é possível navegar entre os caracteres do texto
+
+**Modo de inserção:** `i` - Pressione `i` para entrar no modo de inserção (digitar algo no vim). Para sair desse modo e voltar a navegação, pressione `ESC`
+
+**Modo de comando:** Digite `:` para conseguir aplicar qualquer comando ao vim, alguns dos comandos principais são:
+
+`:w` - Salva o arquivo (write).
+`:q` - Sai do Vim (quit).
+`:wq` - Salva e sai do Vim.
+`:q!` - Sai do Vim sem salvar as alterações (forçar saída).
+`:w arquivo` - Salva o arquivo com um novo nome.
+`:e arquivo` - Abre um novo arquivo no Vim.
+`:bnext` ou `:bn` - Navega para o próximo buffer.
+`:bprev` ou `:bp` - Navega para o buffer anterior.
+`:bd` - Fecha o buffer atual.
+`:set nu` - Ativa a exibição do número das linhas.
+`:set nonu` - Desativa a exibição do número das linhas.
+`/texto` - Pesquisa o texto para frente.
+`?texto` - Pesquisa o texto para trás.
+`n` - Navega para a próxima ocorrência da pesquisa.
+`N` - Navega para a ocorrência anterior da pesquisa.
+`dd` - Exclui a linha atual.
+`yy` - Copia a linha atual.
+`p` - Cola o conteúdo copiado ou excluído.
+`u` - Desfaz a última ação.
+`Ctrl + r` - Refaz a última ação desfeita.
+`:s/antigo/novo/g` - Substitui todas as ocorrências de "antigo" por "novo" na linha atual.
+`:%s/antigo/novo/g` - Substitui todas as ocorrências de "antigo" por "novo" no arquivo inteiro.
+
+## Gerenciamento de Processos e Serviços
+
+Alguns conceitos importantes sobre processos são `PID` e `PPID`. `PID` (Process ID) é o ID do Processo, já o `PPID` (Parent Process ID) são os filhos do processo pai
+
+`pstree` - Mostra a árvore de processos do Linux
+
+`ps` - Mostra os processos do usuário naquela sessão de terminal
+
+`ps -ux` - Mostra todos os processos do seu usuário
+
+`ps -uxa` - Mostra todos os processos de todos os usuários
+
+`pgrep processo` - Mostra o PID do processo selecionado
+
+`kill pid_do_processo` - Força matar um processo. Há vários argumentos nesse comando, utilize `kill -l` para checar.
+
+`kill -s SIGKILL pid_do_processo` - Utilizando um parâmetro específico do comando kill, nesse caso o `SIGKILL`. Também é possível utilizar o número do parâmetro, no caso do SIGKILL, o número é `9`. `kill -9 pid_do_processo`
+
+`pkill firefox` - Mata o processo pelo nome, sem ter que identificar o PID
+
+`killall apache` - Mata todos os processos daquele programa em específico
+
+**systemctl** é um comando do **systemd** para gerenciar os serviços. Alguns comandos básicos são: 
+
+systemctl status nome_servico - Mostra o status do serviço em específico
+
+systemctl start nome_servico - Inicia o serviço em específico
+
+systemctl stop nome_servico - Para o serviço em específico
+
+systemctl restart nome_servico - Reinicia o serviço em específico
+
+Ao executar um processo pelo terminal, esse processo pode rodar em `foreground` ou `background`. Ou seja, ao executar o firefox pelo terminal, ele irá executar o navegador e o processo ficará preso naquele terminal, sem poder executar outros comandos. Isso é rodar em `foreground`. Para rodar em `background`, rode o comando com `&` no final do comando
