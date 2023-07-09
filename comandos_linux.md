@@ -243,12 +243,136 @@ Alguns conceitos importantes sobre processos são `PID` e `PPID`. `PID` (Process
 
 **systemctl** é um comando do **systemd** para gerenciar os serviços. Alguns comandos básicos são: 
 
-systemctl status nome_servico - Mostra o status do serviço em específico
+`systemctl status nome_servico` - Mostra o status do serviço em específico
 
-systemctl start nome_servico - Inicia o serviço em específico
+`systemctl start nome_servico` - Inicia o serviço em específico
 
-systemctl stop nome_servico - Para o serviço em específico
+`systemctl stop nome_servico` - Para o serviço em específico
 
-systemctl restart nome_servico - Reinicia o serviço em específico
+`systemctl restart nome_servico` - Reinicia o serviço em específico
 
 Ao executar um processo pelo terminal, esse processo pode rodar em `foreground` ou `background`. Ou seja, ao executar o firefox pelo terminal, ele irá executar o navegador e o processo ficará preso naquele terminal, sem poder executar outros comandos. Isso é rodar em `foreground`. Para rodar em `background`, rode o comando com `&` no final do comando
+
+## Administração do Sistema Linux
+
+`top` - Mostra um relatório geral do uso do sistema Linux
+
+`free -h` - Mostra a quantidade de memória da máquina, o quanto está sendo utilizado e quantidade de memória livre
+
+`uptime` - Informações de quanto tempo a máquina está ligada, quantidade de usuários logados, etc
+
+`uname -a` - Informações do sistema (ex: versão do kernel, arquitetura do sistema, etc)
+
+`df -h` - Mostra as partições da máquina
+
+**Há 2 principais gerenciadores de pacotes no Linux: Os utilizados no padrão Debian (Ubuntu, Linux Mint) e o padrão RedHat (Fedora, CentOS)**
+
+`dpkg` e `apt-get` são os principais utilizados no padrão Debian
+
+**dpkg:**
+
+`dpkg -l` - Lista todos os pacotes instalados na máquina
+
+`dpkg -i nome_pacote.deb` - Após você baixar da internet o pacote, instala via dpkg (O comando dpkg só instala o pacote solicitado, ele não lida com as dependências desse pacote)
+
+`dpkg -s nome_pacote` - Mostra as informações do pacote instalado na máquina
+
+`dpkg -r nome_pacote` - Desinstala o pacote da máquina, mas mantém algumas informações de configuração
+
+`dpkg -P nome_pacote` - Remove completamente o pacote
+
+**apt-get:**
+
+O apt-get é mais completo. Ele baixa o pacote, checa as versões, instala dependências, etc
+
+`apt-get update` - Vai no arquivo **sources.list**, onde contém os links de todos os sites com os pacotes e atualiza a base de informações dos pacotes
+
+`apt-get upgrade` - Consulta os pacotes da máquina e checa se há versões novas, se houver, baixa e as instala
+
+`apt-get install nome_pacote` - Instala a aplicação no PC
+
+`apt-get remove nome_pacote` - Desinstala a aplicação do PC
+
+**Já no padrão RedHat, os principais são:**
+
+`rpm`, `yum` ou `dnf`
+
+**rpm:**
+
+`rpm -qa` - Lista todos os pacotes instalados na máquina
+
+`rpm -i nome_pacote.rpm` - Após você baixar da internet o pacote, instala via rpm (O comando rpm só instala o pacote solicitado, ele não lida com as dependências desse pacote)
+
+`rpm -qi nome_pacote` - Mostra as informações do pacote instalado na máquina
+
+`rpm -e nome_pacote` - Desinstala o pacote da máquina, mas mantém algumas informações de configuração
+
+`rpm -ev nome_pacote` - Remove completamente o pacote
+
+**yum:**
+
+O yum é mais completo. Ele baixa o pacote, checa as versões, instala dependências, etc
+
+`yum check-update` - Atualiza a base de informações dos pacotes
+
+`yum update` - Consulta os pacotes da máquina e checa se há versões novas, se houver, baixa e as instala
+
+`yum install nome_pacote` - Instala a aplicação no PC
+
+`yum remove nome_pacote` - Desinstala a aplicação do PC
+
+**dnf:**
+
+O dnf é o sucessor do yum, porém mantém muitos dos comandos compatíveis
+
+`dnf check-update` - Atualiza a base de informações dos pacotes. Essas informações fica em `fedora.repo`
+
+`dnf upgrade` - Consulta os pacotes da máquina e checa se há versões novas, se houver, baixa e as instala
+
+`dnf install nome_pacote` - Instala a aplicação no PC
+
+`dnf remove nome_pacote` - Desinstala a aplicação do PC
+
+`reboot` - Reinicia o Linux
+
+`shutdown/poweroff` - Desliga o PC
+
+Os principais logs do sistema ficam dentro de `/var/log`
+
+`syslog` - Mostra os logs do sistema
+
+`dmesg` - Mostra os logs do sistema. Também possui informações de log do boot do sistema
+
+**Os comandos mais comuns no Linux para gerenciar usuários e permissões são:**
+
+**Usuários e Grupos:**
+
+`useradd nome_usuario` - Cria um novo usuário
+
+`userdel nome_usuario` - Apaga um usuário existente
+
+`usermod opções nome_usuario` - Modifica as configurações de um usuário existente
+
+`passwd nome_usuario` - Altera a senha de um usuário
+
+`groupadd nome_grupo` - Cria um novo grupo
+
+`groupdel nome_grupo` - Apaga um grupo existente
+
+`groupmod opções nome_grupo` - Modifica as configurações de um grupo existente
+
+`adduser nome_usuario nome_grupo` - Adiciona um usuário a um grupo
+
+`deluser nome_usuario nome_grupo` - Remove um usuário de um grupo
+
+**Permissões e Proprietários de Arquivos e Diretórios:**
+
+`chmod permissões arquivo` - Modifica as permissões de um arquivo ou diretório. As permissões podem ser especificadas em notação octal (por exemplo, 755) ou usando letras (por exemplo, u+x)
+
+`chown proprietário[:grupo] arquivo` - Altera o proprietário (e opcionalmente o grupo) de um arquivo ou diretório
+
+`chgrp grupo arquivo` - Altera o grupo de um arquivo ou diretório
+
+`ls -l` - Lista os arquivos/diretórios em um diretório junto com as permissões, proprietário, e grupo
+
+Lembre-se de que a maioria desses comandos requer privilégios de root, então eles precisam ser executados com sudo (no Ubuntu e similares) ou como usuário root (em sistemas Red Hat e similares)
