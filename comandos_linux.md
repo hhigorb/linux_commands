@@ -197,27 +197,48 @@ O vim trabalha com modos para realizar alterações nos arquivos. São eles: `mo
 **Modo de comando:** Digite `:` para conseguir aplicar qualquer comando ao vim, alguns dos comandos principais são:
 
 `:w` - Salva o arquivo (write).
+
 `:q` - Sai do Vim (quit).
+
 `:wq` - Salva e sai do Vim.
+
 `:q!` - Sai do Vim sem salvar as alterações (forçar saída).
+
 `:w arquivo` - Salva o arquivo com um novo nome.
+
 `:e arquivo` - Abre um novo arquivo no Vim.
+
 `:bnext` ou `:bn` - Navega para o próximo buffer.
+
 `:bprev` ou `:bp` - Navega para o buffer anterior.
+
 `:bd` - Fecha o buffer atual.
+
 `:set nu` - Ativa a exibição do número das linhas.
+
 `:set nonu` - Desativa a exibição do número das linhas.
+
 `/texto` - Pesquisa o texto para frente.
+
 `?texto` - Pesquisa o texto para trás.
+
 `n` - Navega para a próxima ocorrência da pesquisa.
+
 `N` - Navega para a ocorrência anterior da pesquisa.
+
 `dd` - Exclui a linha atual.
+
 `yy` - Copia a linha atual.
+
 `p` - Cola o conteúdo copiado ou excluído.
+
 `u` - Desfaz a última ação.
+
 `Ctrl + r` - Refaz a última ação desfeita.
+
 `:s/antigo/novo/g` - Substitui todas as ocorrências de "antigo" por "novo" na linha atual.
-`:%s/antigo/novo/g` - Substitui todas as ocorrências de "antigo" por "novo" no arquivo inteiro.
+
+`:%s/antigo/novo/g` - Substitui todas as ocorrências de "antigo" por "novo" no arquivo inteiro
 
 ## Gerenciamento de Processos e Serviços
 
