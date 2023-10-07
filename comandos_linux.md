@@ -49,6 +49,8 @@ Existem várias variáveis de ambiente que já são setadas automaticamente pelo
 
 `clear` - Limpa a tela do terminal
 
+`source nome_arquivo` - source é um comando interno de shell que é usado para ler e executar o conteúdo de um arquivo (geralmente um conjunto de comandos), passado como um argumento no script de shell atual.
+
 `hostname` - Mostra na tela o nome do host
 
 `gnome-calculator` - Através do bash é possível abrir aplicações que estejam instaladas na máquina apenas chamando o nome dela no terminal
