@@ -184,7 +184,7 @@ Arquivos .tar são um conjunto de arquivos agrupados (isso não é compactar).
 
 `grep palavra arquivo_texto.txt` - Filtra a palavra selecionada no arquivo texto
 
-## Requisições no terminal
+## Requisições no Terminal
 
 `curl https://www.exemplo.com` - Fazer uma requisição GET
 
