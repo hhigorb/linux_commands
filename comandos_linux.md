@@ -184,6 +184,20 @@ Arquivos .tar são um conjunto de arquivos agrupados (isso não é compactar).
 
 `grep palavra arquivo_texto.txt` - Filtra a palavra selecionada no arquivo texto
 
+## Requisições no terminal
+
+`curl https://www.exemplo.com` - Fazer uma requisição GET
+
+`curl -X POST -d "param1=valor1&param2=valor2" https://www.exemplo.com/recurso` - Fazer uma requisição POST:
+
+`curl -H "Chave: Valor" https://www.exemplo.com` - Incluir cabeçalhos na requisição:
+
+`curl -o nome_arquivo.html https://www.exemplo.com` - Salvar o resultado em um arquivo:
+
+`curl -u usuário:senha https://www.exemplo.com/recurso` - Realizar uma requisição com autenticação:
+
+`curl -v https://www.exemplo.com` - Exibir informações detalhadas sobre a requisição e resposta:
+
 ## Editores de texto em linha de comando
 
 Os principais editores de texto via linha de comando do Linux são o `nano` e `vim`
